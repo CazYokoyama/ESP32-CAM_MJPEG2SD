@@ -158,7 +158,7 @@ bool startWifi(bool firstcall) {
   if (firstcall) {
     WiFi.mode(WIFI_AP_STA);
     WiFi.persistent(false); // prevent the flash storage WiFi credentials
-    WiFi.setAutoReconnect(false); // Set whether module will attempt to reconnect to an access point in case it is disconnected
+    WiFi.setAutoReconnect(true); // Set whether module will attempt to reconnect to an access point in case it is disconnected
     WiFi.softAPdisconnect(false); // kill rogue AP on startup
     WiFi.disconnect(true);
     WiFi.setHostname(hostName);
@@ -166,8 +166,6 @@ bool startWifi(bool firstcall) {
   }
   bool station = setWifiSTA();
   debugMemory("setWifiSTA");
-  if (!station || allowAP) setWifiAP(); // AP allowed if no Station SSID eg on first time use
-  debugMemory("setWifiAP");
   if (station) {
     // connect to Wifi station
     uint32_t startAttemptTime = millis();
@@ -177,8 +175,11 @@ bool startWifi(bool firstcall) {
       delay(500);
       Serial.flush();
     }
-    if (pingHandle == NULL) startPing();
-    debugMemory("startPing");
+  } else {
+    if (allowAP) {
+      setWifiAP(); // AP allowed if no Station SSID eg on first time use
+      debugMemory("setWifiAP");
+    }
   }
 #if CONFIG_IDF_TARGET_ESP32S3
   setupMdnsHost(); // not on ESP32 as uses 6k of heap
