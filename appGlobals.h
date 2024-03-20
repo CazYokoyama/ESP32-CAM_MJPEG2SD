@@ -44,12 +44,12 @@ CAMERA_MODEL_ESP32S3_CAM_LCD
   To reduce code size by removing unwanted features,
   set relevant defines below to false and delete associated file
 ***************************************************************/
-#define INCLUDE_FTP_HFS false // ftp.cpp (file upload)
-#define INCLUDE_SMTP false    // smtp.cpp (email)
-#define INCLUDE_MQTT false    // mqtt.cpp
-#define INCLUDE_TGRAM false   // telegram.cpp
-#define INCLUDE_CERTS false   // certificates.cpp (https and server certificate checking)
-#define INCLUDE_TELEM false   // telemetry.cpp
+#define INCLUDE_FTP_HFS true // ftp.cpp (file upload)
+#define INCLUDE_SMTP true    // smtp.cpp (email)
+#define INCLUDE_MQTT true    // mqtt.cpp
+#define INCLUDE_TGRAM true   // telegram.cpp
+#define INCLUDE_CERTS true   // certificates.cpp (https and server certificate checking)
+#define INCLUDE_TELEM true   // telemetry.cpp
 #define INCLUDE_MIC true     // mic.cpp (microphone)
 #define INCLUDE_UART true    // uart.cpp (use another esp32 as IO extender)
 
