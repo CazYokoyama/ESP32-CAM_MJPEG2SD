@@ -9,7 +9,7 @@
 #include "appGlobals.h"
 
 // user parameters set from web
-bool useMotion  = true; // whether to use camera for motion detection (with motionDetect.cpp)
+bool useMotion  = false; // whether to use camera for motion detection (with motionDetect.cpp)
 bool dbgMotion  = false;
 bool forceRecord = false; // Recording enabled by rec button
 

@@ -15,15 +15,14 @@
 
 #include "appGlobals.h"
 
-bool micUse; // true to use external I2S microphone 
+bool micUse = true; // true to use external I2S microphone 
 
 // INMP441 I2S microphone pinout, connect L/R to GND for left channel
 // MP34DT01 PDM microphone pinout, connect SEL to GND for left channel
 // if micSckPin > 0, an I2S microphone is assumed, if micSckPin = -1 a PDM microphone is assumed
-// define requires pin numbers via web page config tab
-int micSckPin; // I2S SCK / PDM n/a
-int micSWsPin; // I2S WS  / PDM CLK
-int micSdPin;  // I2S SD  / PDM DAT
+int micSckPin = -1; // I2S SCK / PDM n/a
+int micSWsPin = 42; // I2S WS  / PDM CLK
+int micSdPin = 41;  // I2S SD  / PDM DAT
 // For XIAO_ESP32S3 Sense Cam board, the internal PDM pins are:
 // I2S SCK -1
 // I2S WS / PDM CLK 42

@@ -1,5 +1,8 @@
 # ESP32-CAM_MJPEG2SD
 
+
+**This program is from [s60sc](https://github.com/s60sc)'s [ESP32-CAM_MJPEG2SD](https://github.com/s60sc/ESP32-CAM_MJPEG2SD), with a simple revision of the XIAO support and disabling of features other than video recording.**
+
 Application for ESP32 / ESP32S3 with OV2640 / OV5640 camera to record JPEGs to SD card as AVI files and playback to browser as an MJPEG stream. The AVI format allows recordings to replay at correct frame rate on media players. If a microphone is installed then a WAV file is also created and stored in the AVI file.  
 The application supports:
 * [Motion detection by camera](#motion-detection-by-camera) or PIR / radar sensor
@@ -90,7 +93,7 @@ using [Boards Manager](https://github.com/s60sc/ESP32-CAM_MJPEG2SD/issues/61#iss
 Warning added to v9.6.**
 
 
-On first installation, the application will start in wifi AP mode - connect to SSID: **ESP-CAM_MJPEG_...**, to allow router and password details to be entered via the web page on `192.168.4.1`. The configuration data file (except passwords) is automatically created, and the application web pages automatically downloaded from GitHub to the SD card **/data** folder when an internet connection is available.
+On first installation, the application will start in wifi AP mode - connect to SSID: **XIAO_ESP32S3_SENSE_...**, to allow router and password details to be entered via the web page on `192.168.4.1`. The configuration data file (except passwords) is automatically created, and the application web pages automatically downloaded from GitHub to the SD card **/data** folder when an internet connection is available.
 
 Subsequent updates to the application, or to the **/data** folder files, can be made using the **OTA Upload** tab. The **/data** folder can also be reloaded from GitHub using the **Reload /data** button on the **Edit Config** tab.
 
@@ -240,10 +243,10 @@ To enable MQTT, under **Edit Config** -> **Others** tab, enter fields:
 Mqtt will auto connect if configuration is not blank on ping success.
 
 It will send messages e.g. Record On/Off Motion On/Off to the mqtt broker on channel /status.  
-topic: `homeassistant/sensor/ESP-CAM_MJPEG_904CAAF23A08/status -> {"MOTION":"ON", "TIME":"10:07:47.560"}`
+topic: `homeassistant/sensor/XIAO_ESP32S3_SENSE_904CAAF23A08/status -> {"MOTION":"ON", "TIME":"10:07:47.560"}`
 
 You can also publish control commands to the /cmd channel in order to control camera.  
-topic: `homeassistant/sensor/ESP-CAM_MJPEG_904CAAF23A08/cmd -> dbgVerbose=1;framesize=7;fps=1`
+topic: `homeassistant/sensor/XIAO_ESP32S3_SENSE_904CAAF23A08/cmd -> dbgVerbose=1;framesize=7;fps=1`
 
 ## Port Forwarding
 

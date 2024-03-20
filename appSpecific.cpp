@@ -492,7 +492,7 @@ void appSpecificTelegramTask(void* p) {
 
 /************** default app configuration **************/
 const char* appConfig = R"~(
-appId~ESP-CAM_MJPEG~99~~na
+appId~XIAO_ESP32S3~99~~na
 ST_SSID~~99~~na
 fsPort~21~99~~na
 fsServer~~99~~na

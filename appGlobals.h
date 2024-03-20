@@ -36,19 +36,20 @@ CAMERA_MODEL_ESP32S3_CAM_LCD
 
 // User's ESP32S3 cam board
 #elif defined(CONFIG_IDF_TARGET_ESP32S3)
-#define CAMERA_MODEL_FREENOVE_ESP32S3_CAM
+// #define CAMERA_MODEL_FREENOVE_ESP32S3_CAM
+#define CAMERA_MODEL_XIAO_ESP32S3
 #endif
 
 /***************************************************************
   To reduce code size by removing unwanted features,
   set relevant defines below to false and delete associated file
 ***************************************************************/
-#define INCLUDE_FTP_HFS true // ftp.cpp (file upload)
-#define INCLUDE_SMTP true    // smtp.cpp (email)
-#define INCLUDE_MQTT true    // mqtt.cpp
-#define INCLUDE_TGRAM true   // telegram.cpp
-#define INCLUDE_CERTS true   // certificates.cpp (https and server certificate checking)
-#define INCLUDE_TELEM true   // telemetry.cpp
+#define INCLUDE_FTP_HFS false // ftp.cpp (file upload)
+#define INCLUDE_SMTP false    // smtp.cpp (email)
+#define INCLUDE_MQTT false    // mqtt.cpp
+#define INCLUDE_TGRAM false   // telegram.cpp
+#define INCLUDE_CERTS false   // certificates.cpp (https and server certificate checking)
+#define INCLUDE_TELEM false   // telemetry.cpp
 #define INCLUDE_MIC true     // mic.cpp (microphone)
 #define INCLUDE_UART true    // uart.cpp (use another esp32 as IO extender)
 
@@ -76,7 +77,7 @@ CAMERA_MODEL_ESP32S3_CAM_LCD
 #define HOSTNAME_GRP 99
 //#define REPORT_IDLE // core processor idle time monitoring
  
-#define APP_NAME "ESP-CAM_MJPEG" // max 15 chars
+#define APP_NAME "XIAO_ESP32S3" // max 15 chars
 #define APP_VER "9.6.2"
 
 #define HTTP_CLIENTS 2 // http, ws

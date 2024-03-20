@@ -12,7 +12,8 @@ void setup() {
   // prep SD card storage
   if (startStorage()) {
     // Load saved user configuration
-    if (loadConfig()) {
+    if (loadConfig(false)) {
+    // if (loadConfig()) {
       // initialise camera
       if (psramFound()) {
         LOG_INF("PSRAM size: %s", fmtSize(esp_spiram_get_size()));

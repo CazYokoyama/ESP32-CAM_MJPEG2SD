@@ -184,10 +184,10 @@ static bool savePrefs(bool retain = true) {
   return true;
 }
 
-static bool loadPrefs() {
+static bool loadPrefs(bool reset = true) {
   // use preferences for passwords
   if (!prefs.begin(APP_NAME, false)) {  
-    savePrefs(); // if prefs do not yet exist
+    savePrefs(reset); // if prefs do not yet exist
     return false;
   }
   if (!strlen(ST_SSID)) {
@@ -486,7 +486,7 @@ static bool checkConfigFile() {
   return goodFile;
 }
 
-bool loadConfig() {
+bool loadConfig(bool reset) {
   // called on startup
   LOG_INF("Load config");
   if (jsonBuff == NULL) {
@@ -496,7 +496,7 @@ bool loadConfig() {
   if (!res) res = checkConfigFile(); // to recreate file if deleted on first call
   if (res) {
     loadConfigVect();
-    loadPrefs(); // overwrites any corresponding entries in config
+    loadPrefs(reset); // overwrites any corresponding entries in config
 
     // load variables from stored config vector
     reloadConfigs();

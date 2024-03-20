@@ -122,7 +122,7 @@ void initStatus(int cfgGroup, int delayVal);
 void killSocket(int skt = -99);
 void listBuff(const uint8_t* b, size_t len); 
 bool listDir(const char* fname, char* jsonBuff, size_t jsonBuffLen, const char* extension);
-bool loadConfig();
+bool loadConfig(bool reset = true);
 void logLine();
 void logPrint(const char *fmtStr, ...);
 void logSetup();
