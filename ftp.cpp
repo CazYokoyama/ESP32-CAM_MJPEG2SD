@@ -177,7 +177,7 @@ static bool ftpConnect() {
   if (!sendFtpCommand("", "", "220")) return false;
   if (useFtps) {
     if (sendFtpCommand("AUTH ", "TLS", "234")) {
-      /* NOT IMPLEMENTED */
+      LOG_INF("%d: Successfully sent AUTH TLS", __LINE__);
     } else LOG_WRN("FTPS not available");
   }
   if (!sendFtpCommand("USER ", ftpUser, "331")) return false;
